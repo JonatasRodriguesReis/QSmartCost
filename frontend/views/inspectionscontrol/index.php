@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 $connection = Yii::$app->getDb();
 
 	//FORNECEDORES LOCAIS
-      $command = $connection->createCommand("SELECT COUNT(item) FROM lg_teste.inspectionscontrol WHERE tipo LIKE 'LOCAL'");
+      $command = $connection->createCommand("SELECT COUNT(item) FROM lg.inspectionscontrol WHERE tipo LIKE 'LOCAL'");
 
       $result = $command->queryAll();
       foreach ($result as $perk) {
@@ -22,7 +22,7 @@ $connection = Yii::$app->getDb();
         break;
       }
 	  
-	  $command = $connection->createCommand("SELECT COUNT(item) FROM lg_teste.inspectionscontrol WHERE method LIKE 'Inspection ' AND tipo LIKE 'LOCAL'");
+	  $command = $connection->createCommand("SELECT COUNT(item) FROM lg.inspectionscontrol WHERE method LIKE 'Inspection ' AND tipo LIKE 'LOCAL'");
 
       $result = $command->queryAll();
       foreach ($result as $perk) {
@@ -30,7 +30,7 @@ $connection = Yii::$app->getDb();
         break;
       }
 	  
-	  $command = $connection->createCommand("SELECT COUNT(item) FROM lg_teste.inspectionscontrol WHERE method LIKE 'Non-Inspection' AND tipo LIKE 'LOCAL'");
+	  $command = $connection->createCommand("SELECT COUNT(item) FROM lg.inspectionscontrol WHERE method LIKE 'Non-Inspection' AND tipo LIKE 'LOCAL'");
 
       $result = $command->queryAll();
       foreach ($result as $perk) {
@@ -46,7 +46,7 @@ $connection = Yii::$app->getDb();
 	  
 	  
 	  //FORNECEDORES IMPORTADOS
-	  $command = $connection->createCommand("SELECT COUNT(item) FROM lg_teste.inspectionscontrol WHERE tipo LIKE 'IMPORTADO'");
+	  $command = $connection->createCommand("SELECT COUNT(item) FROM lg.inspectionscontrol WHERE tipo LIKE 'IMPORTADO'");
 
       $result = $command->queryAll();
       foreach ($result as $perk) {
@@ -54,7 +54,7 @@ $connection = Yii::$app->getDb();
         break;
       }
 	  
-	  $command = $connection->createCommand("SELECT COUNT(item) FROM lg_teste.inspectionscontrol WHERE method LIKE 'Inspection ' AND tipo LIKE 'IMPORTADO'");
+	  $command = $connection->createCommand("SELECT COUNT(item) FROM lg.inspectionscontrol WHERE method LIKE 'Inspection ' AND tipo LIKE 'IMPORTADO'");
 
       $result = $command->queryAll();
       foreach ($result as $perk) {
@@ -62,7 +62,7 @@ $connection = Yii::$app->getDb();
         break;
       }
 	  
-	  $command = $connection->createCommand("SELECT COUNT(item) FROM lg_teste.inspectionscontrol WHERE method LIKE 'Non-Inspection' AND tipo LIKE 'IMPORTADO'");
+	  $command = $connection->createCommand("SELECT COUNT(item) FROM lg.inspectionscontrol WHERE method LIKE 'Non-Inspection' AND tipo LIKE 'IMPORTADO'");
 
       $result = $command->queryAll();
       foreach ($result as $perk) {

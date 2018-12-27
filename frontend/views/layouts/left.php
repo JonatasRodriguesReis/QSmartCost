@@ -24,7 +24,7 @@ if(Yii::$app->user->isGuest){
 
         <?= dmstr\widgets\Menu::widget(
             [
-                'options' => ['class' => 'sidebar-menu','data-widget' => 'tree', ],
+                'options' => ['class' => 'sidebar-menu'],
                 'items' => [
 
                     ['label' => 'Sistemas Q Smart', 'options' => ['class' => 'header']],
@@ -56,8 +56,6 @@ if(Yii::$app->user->isGuest){
                             //['label' => 'MWO', 'icon' => 'fa fa-info-circle', 'url' => ['/nw8control/index']],
                         ],
                     ],
-					
-                    ['label' => 'RAC', 'icon' => 'fa fa-info-circle', 'url' => ['/inspectionscontrol/index']],
 					[
                         'label' => 'Energy Test Monitoring',
                         'icon' => 'fa fa-reorder',
@@ -68,30 +66,21 @@ if(Yii::$app->user->isGuest){
                             ['label' => 'Monitoring', 'icon' => 'fa fa-info-circle', 'url' => ['/calc-z-testes/zcalc']],
                         ],
                     ],
-					// [
-                        // 'label' => 'Teste',
-                        // 'icon' => 'fa fa-reorder',
-                        // 'url' => '#',
-                        // 'items' => [
-                            // ['label' => 'Register', 'icon' => 'fa fa-info-circle', 'url' => ['/teste2/index']]
-                        // ],
-                    // ],
 					[
 						'label' => 'XRF',
                         'icon' => 'fa fa-reorder',
                         'url' => ['/statusrohs/index']
                         
 					],
-                    [ 'label' => 'Goals Plan', 'icon' => 'fa fa-search', 'url' => '#',],
-                    ['label' => 'QHI Board', 'icon' => 'fa fa-check-square-o', 'url' => '#'],
+                    //[ 'label' => 'Goals Plan', 'icon' => 'fa fa-reorder', 'url' => '#',],
+                    //['label' => 'QHI Board', 'icon' => 'fa fa-reorder', 'url' => '#'],
+                    //['label' => 'Line Audit', 'icon' => 'fa fa-check-square-o', 'url' => ['/line-audit-auditoria/index']],
 					//['label' => 'Load ON', 'icon' => 'fa fa-line-chart', 'url' => ['/site/loadon']],
 					//['label' => 'Control of Inspector Load', 'icon' => 'fa fa-line-chart', 'url' => ['/site/index']],
 
                 ],
             ]
         ) ?>
-		
-
 
         <ul class="sidebar-menu">
             <li class="header"><span>Sistemas LG</span></li>

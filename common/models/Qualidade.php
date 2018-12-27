@@ -41,7 +41,7 @@ class Qualidade extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-	    'partNumber' => 'Part Number',
+            'partNumber' => 'Part Number',
             'partName' => 'Part Name',
             'status' => 'Status',
         ];

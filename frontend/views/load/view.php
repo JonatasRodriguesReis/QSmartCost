@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $model->item;
 				</div>
 				<div class="col-md-6" align="right">
 					<!--<button type="button" class="btn btn-success" style="border-radius: 10px" onclick="document.getElementById('id01').style.display='block'" >Cálculo de Resistência</button>-->
-					<a target="_blank" href="http://10.193.236.67:85/QSmart/advanced/frontend/web/index.php?r=qualidade%2Fview&id=<?= $model->item ?>">
+					<a target="_blank" href="http://10.193.236.145:85/QSmart/advanced/frontend/web/index.php?r=qualidade%2Fview&id=<?= $model->item ?>">
 						<button type="button" class="btn btn-warning" style="border-radius: 10px">Digital History Card</button>
 					</a>
 				</div>
@@ -98,17 +98,17 @@ $this->params['breadcrumbs'][] = $model->item;
     ]) ?>
 	
 	<?php
-		if($model->status == "TO DO" && $model->iqc_received != NULL){
+		if(($model->status == "TO DO" or $model->status == "to do") && $model->iqc_received != NULL){
 			echo Html::a('Iniciar Inspeção', ['start', 'id' => $model->asn], ['class' => 'btn btn-block btn-lg btn-success', 'data' => [
                                             'confirm' => 'Tem certeza que deseja INICIAR a inspeção do item '. $model->item . '?',
                                             'method' => 'post',
                                         ],]);
-		} else if($model->status == "DOING" && $model->iqc_received != NULL){
+		} else if(($model->status == "DOING" or $model->status == "doing")&& $model->iqc_received != NULL){
 			echo Html::a('Finalizar Inspeção', ['stop', 'id' => $model->asn], ['class' => 'btn btn-block btn-lg btn-warning', 'data' => [
                                             'confirm' => 'Tem certeza que deseja FINALIZAR a inspeção do item '. $model->item . '?',
                                             'method' => 'post',
                                         ],]);
-		} else if($model->status == "DONE" && $model->iqc_received != NULL){
+		} else if(($model->status == "DONE" or $model->status == "done") && $model->iqc_received != NULL){
 			echo Html::a('Relatar Não Conformidade', ['alert', 'id' => $model->asn], ['class' => 'btn btn-block btn-lg btn-danger', 'data' => [
                                             'confirm' => 'Tem certeza que deseja RELATAR NÃO CONFORMIDADE do item '. $model->item . '?',
                                             'method' => 'post',

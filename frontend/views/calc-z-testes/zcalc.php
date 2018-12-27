@@ -162,14 +162,14 @@ table, th, td {
 		echo"
 		<tr>
 		<td style='vertical-align: middle' rowspan='4'>
-			<a style='text-size: large' href='http://10.193.236.67:85/QSmart/advanced/frontend/web/index.php?CalcZTestesSearch%5Bdata%5D=&CalcZTestesSearch%5Bmodelo%5D=".$modelo."&CalcZTestesSearch%5Bvalor_capacidade%5D=&CalcZTestesSearch%5Bvalor_eer%5D=&CalcZTestesSearch%5Bvalor_power%5D=&r=calc-z-testes%2Fhistorico&sort=-data'>
+			<a style='text-size: large' href='http://10.193.236.145:85/QSmart/advanced/frontend/web/index.php?CalcZTestesSearch%5Bdata%5D=&CalcZTestesSearch%5Bmodelo%5D=".$modelo."&CalcZTestesSearch%5Bvalor_capacidade%5D=&CalcZTestesSearch%5Bvalor_eer%5D=&CalcZTestesSearch%5Bvalor_power%5D=&r=calc-z-testes%2Fhistorico&sort=-data'>
 			<h4><span class='label label-".$status_cor."'>".$status."</span></h4>
 			</a>
 		</td>
 		</tr>
 		<tr>
 			<td style='vertical-align: middle' rowspan='3'>
-				<a style='text-size: large' href='http://10.193.236.67:85/QSmart/advanced/frontend/web/index.php?r=calc-z-testes/zcalcgraph&modelo=".$modelo."&valor_capacidade=".$valor_capacidade."&valor_eer=".$valor_eer."&valor_power=".$valor_power."&valorz_capacidade=".$valorz_capacidade."&valorz_eer=".$valorz_eer."&valorz_power=".$valorz_power."&capacidade_imetro=".$capacidade_imetro."&eer_imetro=".$eer_imetro."&power_imetro=".$power_imetro."'><font size='4'>".$modelo_split[0]."</font></a>
+				<a style='text-size: large' href='http://10.193.236.145:85/QSmart/advanced/frontend/web/index.php?r=calc-z-testes/zcalcgraph&modelo=".$modelo."&valor_capacidade=".$valor_capacidade."&valor_eer=".$valor_eer."&valor_power=".$valor_power."&valorz_capacidade=".$valorz_capacidade."&valorz_eer=".$valorz_eer."&valorz_power=".$valorz_power."&capacidade_imetro=".$capacidade_imetro."&eer_imetro=".$eer_imetro."&power_imetro=".$power_imetro."'><font size='4'>".$modelo_split[0]."</font></a>
 				<br>
 			</td>
 			<td style='text-align:left'>Capacidade</td>

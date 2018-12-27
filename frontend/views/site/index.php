@@ -29,7 +29,7 @@ $this->title = 'Q Smart';
     function checkKey(e) {
         e = e || window.event;
         if (e.keyCode == '13') {
-            setclick.setAttribute('href', "index.php?QualidadeSearch%5BpartNumber%5D="+   valor.value+"&QualidadeSearch%5BpartName%5D=&r=qualidade");
+            setclick.setAttribute('href', "index.php?r=qualidade%2Fview&id="+valor.value);
             setclick.click();
         }
     }
