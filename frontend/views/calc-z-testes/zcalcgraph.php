@@ -22,7 +22,7 @@ $power_imetro = $_GET["power_imetro"];
 
 ?>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="http://10.193.236.67:85/QSmart/advanced/frontend/web/js/Chart.min.js"></script>
+<script src="http://10.193.236.145:85/QSmart/advanced/frontend/web/js/Chart.min.js"></script>
 
 <h2><?=$modelo_split[0]?></h2>
 <!--
