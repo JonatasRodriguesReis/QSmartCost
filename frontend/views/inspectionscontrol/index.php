@@ -3,6 +3,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\InspectionscontrolSearch */
@@ -86,7 +87,8 @@ $connection = Yii::$app->getDb();
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 	
 	<div class="col-md-3">
-		<a href="http://10.193.236.87:85/QSmart/advanced/frontend/web?r=inspectionscontrol">
+		<!--<a href="http://10.193.236.87:85/QSmart/advanced/frontend/web?r=inspectionscontrol"> -->
+		<a href=<?php echo Url::to('?r=inspectionscontrol') ;?>>
 		<div class="callout callout-info">
 			<h4>TOTAL</h4>
 			<h4>Local - <?php echo $total?> Itens</h4>
@@ -96,7 +98,8 @@ $connection = Yii::$app->getDb();
 	</div>
 	
 	<div class="col-md-3">
-		<a href="http://10.193.236.87:85/QSmart/advanced/frontend/web?InspectionscontrolSearch[method]=Inspection+&r=inspectionscontrol">
+		<!--<a href="http://10.193.236.94:85/QSmart/advanced/frontend/web?InspectionscontrolSearch[method]=Inspection+&r=inspectionscontrol">-->
+		<a href=<?php echo Url::to('?InspectionscontrolSearch[method]=Inspection+&r=inspectionscontrol') ;?> >
 		<div class="callout callout-success">
 			<h4>INSPECTION</h4>
 			<h4>Local - <?php echo $ok?> Itens - <?php echo $resultOK?>%</h4>
@@ -106,7 +109,8 @@ $connection = Yii::$app->getDb();
 	</div>
 	
 	<div class="col-md-3">
-		<a href="http://10.193.236.87:85/QSmart/advanced/frontend/web?InspectionscontrolSearch[method]=Non-Inspection&r=inspectionscontrol">
+		<!--<a href="http://10.193.236.87:85/QSmart/advanced/frontend/web?InspectionscontrolSearch[method]=Non-Inspection&r=inspectionscontrol"> -->
+		<a href=<?php echo Url::to('?InspectionscontrolSearch[method]=Non-Inspection&r=inspectionscontrol') ;?> >
 		<div class="callout callout-danger">
 			<h4>NON INSPECTION</h4>
 			<h4>Local - <?php echo $ng?> Itens - <?php echo $resultNG?>% </h4>
@@ -116,7 +120,8 @@ $connection = Yii::$app->getDb();
 	</div>	
 	
 	<div class="col-md-3">
-		<a href="http://10.193.236.87:85/QSmart/advanced/frontend/web?InspectionscontrolSearch[method]=Check-Inspection&r=inspectionscontrol">
+		<!--<a href="http://10.193.236.87:85/QSmart/advanced/frontend/web?InspectionscontrolSearch[method]=Check-Inspection&r=inspectionscontrol"> -->
+		<a href=<?php echo Url::to('?InspectionscontrolSearch[method]=Check-Inspection&r=inspectionscontrol') ;?> >	
 		<div class="callout callout-warning">
 			<h4>CHECK-INSPECTION</h4>
 			<h4>Local - <?php echo $checkInsp?> Itens - <?php echo $resultCheckInsp?>% </h4>

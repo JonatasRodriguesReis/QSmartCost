@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\InspectionscontrolSearch */
@@ -20,10 +21,12 @@ $capacidade_imetro = $_GET["capacidade_imetro"];
 $eer_imetro = $_GET["eer_imetro"];
 $power_imetro = $_GET["power_imetro"];
 
+
 ?>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="http://10.193.236.145:85/QSmart/advanced/frontend/web/js/Chart.min.js"></script>
+<!--<script src="http://10.193.236.94:85/QSmart/advanced/frontend/web/js/Chart.min.js"></script> -->
 
+<script src= <?php echo Yii::$app->request->baseUrl . "/js/Chart.min.js"; ?> ></script>
 <h2><?=$modelo_split[0]?></h2>
 <!--
 <p align = "left">

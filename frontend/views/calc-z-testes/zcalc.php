@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-
+use yii\helpers\Url;
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\InspectionscontrolSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -144,7 +144,7 @@ table, th, td {
 			$status = "DONE";
 			$status_cor = "success";
 		}else{
-			$command5 = $connection->createCommand("SELECT COUNT(id) FROM lg.calc_z_testes WHERE modelo LIKE '$modelo' AND data BETWEEN '2017-12-01' AND '2018-06-31'");
+			$command5 = $connection->createCommand("SELECT COUNT(id) FROM lg.calc_z_testes WHERE modelo LIKE '$modelo' AND data BETWEEN '2018-07-01' AND '2018-12-31'");
 			$result5 = $command5->queryAll();
 			foreach ($result5 as $perk5) {
 				$contagem2 = $perk5['COUNT(id)'];
@@ -158,18 +158,25 @@ table, th, td {
 				$status_cor = "default";
 			}
 		}
-		
+
+		/*<a style='text-size: large' href='http://10.193.236.94:85/QSmart/advanced/frontend/web/index.php?CalcZTestesSearch%5Bdata%5D=&CalcZTestesSearch%5Bmodelo%5D=".$modelo."&CalcZTestesSearch%5Bvalor_capacidade%5D=&CalcZTestesSearch%5Bvalor_eer%5D=&CalcZTestesSearch%5Bvalor_power%5D=&r=calc-z-testes%2Fhistorico&sort=-data'>*/
+
+		/*
+			<a style='text-size: large' href='http://10.193.236.94:85/QSmart/advanced/frontend/web/index.php?r=calc-z-testes/zcalcgraph&modelo=".$modelo."&valor_capacidade=".$valor_capacidade."&valor_eer=".$valor_eer."&valor_power=".$valor_power."&valorz_capacidade=".$valorz_capacidade."&valorz_eer=".$valorz_eer."&valorz_power=".$valorz_power."&capacidade_imetro=".$capacidade_imetro."&eer_imetro=".$eer_imetro."&power_imetro=".$power_imetro."'><font size='4'>".$modelo_split[0]."</font></a>
+		*/
+
+
 		echo"
 		<tr>
 		<td style='vertical-align: middle' rowspan='4'>
-			<a style='text-size: large' href='http://10.193.236.145:85/QSmart/advanced/frontend/web/index.php?CalcZTestesSearch%5Bdata%5D=&CalcZTestesSearch%5Bmodelo%5D=".$modelo."&CalcZTestesSearch%5Bvalor_capacidade%5D=&CalcZTestesSearch%5Bvalor_eer%5D=&CalcZTestesSearch%5Bvalor_power%5D=&r=calc-z-testes%2Fhistorico&sort=-data'>
+			<a style='text-size: large' href = '". Url::to('?CalcZTestesSearch%5Bdata%5D=&CalcZTestesSearch%5Bmodelo%5D='.$modelo. '&CalcZTestesSearch%5Bvalor_capacidade%5D=&CalcZTestesSearch%5Bvalor_eer%5D=&CalcZTestesSearch%5Bvalor_power%5D=&r=calc-z-testes%2Fhistorico&sort=-data') . "'>
 			<h4><span class='label label-".$status_cor."'>".$status."</span></h4>
 			</a>
 		</td>
 		</tr>
 		<tr>
 			<td style='vertical-align: middle' rowspan='3'>
-				<a style='text-size: large' href='http://10.193.236.145:85/QSmart/advanced/frontend/web/index.php?r=calc-z-testes/zcalcgraph&modelo=".$modelo."&valor_capacidade=".$valor_capacidade."&valor_eer=".$valor_eer."&valor_power=".$valor_power."&valorz_capacidade=".$valorz_capacidade."&valorz_eer=".$valorz_eer."&valorz_power=".$valorz_power."&capacidade_imetro=".$capacidade_imetro."&eer_imetro=".$eer_imetro."&power_imetro=".$power_imetro."'><font size='4'>".$modelo_split[0]."</font></a>
+				<a style='text-size: large' href='" . Url::to('?r=calc-z-testes/zcalcgraph&modelo=' . $modelo.'&valor_capacidade='.$valor_capacidade.'&valor_eer='.$valor_eer.'&valor_power='.$valor_power.'&valorz_capacidade='.$valorz_capacidade.'&valorz_eer='.$valorz_eer.'&valorz_power='.$valorz_power.'&capacidade_imetro='.$capacidade_imetro.'&eer_imetro='.$eer_imetro.'&power_imetro='.$power_imetro ) ."'><font size='4'>".$modelo_split[0]."</font></a>
 				<br>
 			</td>
 			<td style='text-align:left'>Capacidade</td>

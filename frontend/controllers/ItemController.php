@@ -12,6 +12,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\helpers\Url;
 
 /*update subitem set operator = 'Claudia', judge = 'O.K.' where item = (select id from item where nome = 'ABW73152517' and data_teste = '2018-10-4') and nome = 'Surface';    update item set situacao = 'REALIZADO' where nome = 'ABW73152517' and data_teste = '2018-10-4';
 update subitem set operator = 'Claudia', judge = 'O.K.' where item = (select id from item where nome = 'ABW73152517' and data_teste = '2018-10-4') and nome = 'Insulator 1';    
@@ -93,14 +94,14 @@ class ItemController extends Controller
             
         }else{
             $aux = '';
-            $htm = '<thead style="background-color:#696969;color:#fff;text-align:center;"><tr style="font-size:16px;"><td>Sample name</td><td>Recipe Name</td><td>Cd Conc</td><td>Pb Conc</td><td>Hg Conc</td><td>Br Conc</td><td>Cr Conc</td><td></td></tr></thead>';
+            $htm = '<thead style="background-color:#696969;color:#fff;text-align:center;"><tr style="font-size:16px;"><th style="text-align:center;">Sample name</th><th>Recipe Name</th><th>Cd Conc</th><th>Pb Conc</th><th>Hg Conc</th><th>Br Conc</th><th>Cr Conc</th><th></th></tr></thead>';
             $htm = $htm.'<tbody>';
             foreach ($result as $item) {
                 $htm = $htm.'<tr><td style="text-align:center;vertical-align:middle;font-size:16px;"><b>'. $item['nome'] . '</b>';
 
-                $htm = $htm.'<td style="text-align:center;vertical-align:middle;font-size:16px;"><b>'. $item['recipe_name'] . '</b>';
+                $htm = $htm.'<td style="text-align:center;vertical-align:middle;font-size:16px;"><b >'. $item['recipe_name'] . '</b>';
 
-                if($item['cd_conc'] < 800) $htm = $htm.'<td><div style="height:50px; text-align:center;background-color: #32f032;border-radius: 8px;vertical-align:middle; padding-top:16px;"><b>'. $item['cd_conc'] .'</b></div></td>';
+                if($item['cd_conc'] < 80) $htm = $htm.'<td><div style="height:50px; text-align:center;background-color: #32f032;border-radius: 8px;vertical-align:middle; padding-top:16px;"><b>'. $item['cd_conc'] .'</b></div></td>';
                 else $htm = $htm.'<td><div style="height:50px; text-align:center;background-color: #f00f0f;border-radius: 8px;vertical-align:middle; padding-top:16px;color:white;"><b>'. $item['cd_conc'] .'</b></div></td>';
                 if($item['pb_conc'] < 800) $htm = $htm.'<td><div style="height:50px; text-align:center;background-color: #32f032;border-radius: 8px;vertical-align:middle; padding-top:16px;"><b>'. $item['pb_conc'] .'</b></div></td>';
                 else $htm = $htm.'<td><div style="height:50px; text-align:center;background-color: #f00f0f;border-radius: 8px;vertical-align:middle; padding-top:16px;color:white;"><b>'. $item['pb_conc'] .'</b></div></td>';
@@ -109,9 +110,9 @@ class ItemController extends Controller
                 if($item['br_conc'] < 800) $htm = $htm.'<td><div style="height:50px; text-align:center;background-color: #32f032;border-radius: 8px;vertical-align:middle; padding-top:16px;"><b>'. $item['br_conc'] .'</b></div></td>';
                 else $htm = $htm.'<td><div style="height:50px; text-align:center;background-color: #f00f0f;border-radius: 8px;vertical-align:middle; padding-top:16px;color:white;"><b>'. $item['br_conc'] .'</b></div></td>';
                 if($item['cr_conc'] < 800) $htm = $htm.'<td><div style="height:50px; text-align:center;background-color: #32f032;border-radius: 8px;vertical-align:middle; padding-top:16px;"><b>'. $item['cr_conc'] .'</b></div></td>';
-                else $htm = $htm.'<td><div style="height:50px; text-align:center;background-color: #f00f0f;border-radius: 8px;vertical-align:middle; padding-top:16px;color:white;"><b>'. $item['cr_conc'] .'</b>/div></td>';
-
-                $htm = $htm.'</a></td><td><a href = "http://localhost:85/ReportsFiles/' . $item['data_teste'] . '_'. $item['sample_no'] .'_'. $item['nome'] .'_' .$nome .'.xls"><button class="btn btn-primary"'. $aux .'>Report</button></a></td></tr>';
+                else $htm = $htm.'<td><div style="height:50px; text-align:center;background-color: #f00f0f;border-radius: 8px;vertical-align:middle; padding-top:16px;color:white;"><b>'. $item['cr_conc'] .'</b> </div></td>';
+				
+                $htm = $htm.'</a></td><td><a href = "'. Url::to('/ReportsFiles/' ) . $item['data_teste'] . '_'. $item['sample_no'] .'_'. $item['nome'] .'_' .$nome .'.xls"><button class="btn btn-primary"'. $aux .'>Report</button></a></td></tr>';
 
                     /*$htm = $htm.'<tr><td><a><h5>'. $item['nome'] . '</h5></a></td><td><a href = "http://localhost:85/QSmartCost/exportarPDF.php?nome=' . $item['data_teste'] . '_'. $item['sample_no'] .'_'. $item['nome'] .'_' .$nome .'.html"><button class="btn btn-primary"'. $aux .'>Report</button></a></td></tr>';*/
             }

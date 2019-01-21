@@ -50,7 +50,7 @@ $this->registerJs($script, $position);
 $this->registerCss('
 
 
-.table-fixed { overflow-y: auto; height: 400px; }
+.table-fixed { overflow-y: auto; height: 450px; }
 
 /* Just common table stuff. */
 table  { border-collapse: collapse; width: 100%; }
@@ -126,10 +126,10 @@ th     { background-color:#696969;color:#fff; }
 				  <div class="progress-bar " role="progressbar" style=" color:#000; background-color: #32f032;width:'. $numConcluido .'%;" aria-valuenow="'. $numConcluido .'" aria-valuemin="0" aria-valuemax="100"><b>'.$numConcluido.'%</b></div>
 				</div>';
 			echo '<div style="display:inline-block;float:right;"> 
-					<button type="button" class="btn example-popover " styledata-container="body" style = "height: 25px ;border-radius: 50px; background-color: #696969;" data-toggle="popover" data-placement="top" data-content="">
+					&ensp;<button type="button" class="btn example-popover " styledata-container="body" style = "height: 25px ;border-radius: 50px; background-color: #696969;" data-toggle="popover" data-placement="top" data-content="">
                     </button>&ensp;Data alterada</div>';
             echo '<div style="display:inline-block;float:right;"> 
-					<button type="button" class="btn btn-light example-popover" styledata-container="body" style = "height: 25px ;border-radius: 50px;" data-toggle="popover" data-placement="top" data-content="">
+					&ensp;<button type="button" class="btn  example-popover" styledata-container="body" style = "height: 25px ;border-radius: 50px;background-color:#CCCCCC;" data-toggle="popover" data-placement="top" data-content="">
                     </button>&ensp;Não Realizado&ensp;&ensp;</div>';
             echo '<div style="display:inline-block;float:right;"> 
 					<button type="button" class="btn example-popover" styledata-container="body" style = "background-color: #32f032;height: 25px ;border-radius: 50px;" data-placement="top" data-content="">

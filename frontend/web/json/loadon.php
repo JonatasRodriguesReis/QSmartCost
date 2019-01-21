@@ -14,7 +14,7 @@ $result = $conn->query("SELECT inspetor_iqc, item, inicio_inspecao, fim_inspecao
 $outp = array();
 $outp = $result->fetch_all(MYSQLI_ASSOC);
 
-echo json_encode($outp);
+echo (json_encode($outp));
 
 
 ?>

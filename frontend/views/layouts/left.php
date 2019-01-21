@@ -73,7 +73,7 @@ if(Yii::$app->user->isGuest){
                         
 					],
                     //[ 'label' => 'Goals Plan', 'icon' => 'fa fa-reorder', 'url' => '#',],
-                    //['label' => 'QHI Board', 'icon' => 'fa fa-reorder', 'url' => '#'],
+                    ['label' => 'QHI Board', 'icon' => 'fa fa-reorder', 'url' => ['/qhiboard/index']],
                     //['label' => 'Line Audit', 'icon' => 'fa fa-check-square-o', 'url' => ['/line-audit-auditoria/index']],
 					//['label' => 'Load ON', 'icon' => 'fa fa-line-chart', 'url' => ['/site/loadon']],
 					//['label' => 'Control of Inspector Load', 'icon' => 'fa fa-line-chart', 'url' => ['/site/index']],

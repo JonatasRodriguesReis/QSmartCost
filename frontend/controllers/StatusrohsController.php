@@ -425,7 +425,7 @@ class StatusrohsController extends Controller
                         }else{
                             $htm = $htm .'
                                 <td style="vertical-align:middle; padding:0px;">
-                                    <button type="button" class="btn btn-light example-popover" styledata-container="body" style = "height: 25px ;width:100%;border-radius: 50px;" data-toggle="popover" data-placement="top" data-content="'. $item['comentario'] . '">
+                                    <button type="button" class="btn example-popover" styledata-container="body" style = "height: 25px ;width:100%;border-radius: 50px;background-color:#CCCCCC;" data-toggle="popover" data-placement="top" data-content="'. $item['comentario'] . '">
                                     </button>
                                 </td>
                             ';

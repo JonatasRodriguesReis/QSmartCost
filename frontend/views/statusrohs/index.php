@@ -34,12 +34,12 @@ $script = <<< JS
 		            	drawChart(lista);
 		            },
 		            error: function(xhr, ajaxOptions, thrownError){
-		            	alert(thrownError);
+		            	//alert(thrownError);
 		            }
 		        }); 
             },
             error: function(xhr, ajaxOptions, thrownError){
-            	alert(thrownError);
+            	//alert(thrownError);
             }
         }); 
 
