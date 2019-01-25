@@ -46,7 +46,7 @@ table, th, td {
 			<th style="vertical-align: middle" colspan='2'>Judgment</th>
 		</tr>
 		<tr>
-			<th>Zlt 3.0</th>
+			<th>Zlt(P) 3.0</th>
 			<th>Margin 3%</th>   
 		</tr>
 	</thead>
@@ -133,7 +133,7 @@ table, th, td {
 			$cor_power = "success";
 		}
 		
-		$command4 = $connection->createCommand("SELECT COUNT(id) FROM lg.calc_z_testes WHERE modelo LIKE '$modelo' AND data BETWEEN '2018-06-01' AND '2018-12-31'");
+		$command4 = $connection->createCommand("SELECT COUNT(id) FROM lg.calc_z_testes WHERE modelo LIKE '$modelo' AND data BETWEEN '2019-01-01' AND '2019-02-31'");
 		$result4 = $command4->queryAll();
 		foreach ($result4 as $perk4) {
 			$contagem = $perk4['COUNT(id)'];
@@ -144,7 +144,7 @@ table, th, td {
 			$status = "DONE";
 			$status_cor = "success";
 		}else{
-			$command5 = $connection->createCommand("SELECT COUNT(id) FROM lg.calc_z_testes WHERE modelo LIKE '$modelo' AND data BETWEEN '2018-07-01' AND '2018-12-31'");
+			$command5 = $connection->createCommand("SELECT COUNT(id) FROM lg.calc_z_testes WHERE modelo LIKE '$modelo' AND data BETWEEN '2018-06-01' AND '2019-01-31'");
 			$result5 = $command5->queryAll();
 			foreach ($result5 as $perk5) {
 				$contagem2 = $perk5['COUNT(id)'];
