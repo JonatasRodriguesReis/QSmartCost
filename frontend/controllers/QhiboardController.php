@@ -446,6 +446,36 @@ class QhiboardController extends Controller
               }
         }
 
+        $accsvc = 0;
+        $waccs = 0;
+        $rateFFR = 0;
+        $fc = 0;
+        $sales = 0;
+        $rateFCR = 0;
+        $ppq = 0;
+        $tpqPRR = 0;
+        $ppmPRR = 0;
+        $def = 0;
+        $tpqTLDR = 0;
+        $ppmTLDR = 0;
+        $rew = 0;
+        $tpqIFRR = 0;
+        $ppmIFRR = 0;
+        $qty = 0;
+        $ngLRR = 0;
+        $tpqLRR = 0;
+        $rateLRR = 0;
+        $ngLot = 0;
+        $total = 0;
+        $ppmLot = 0;
+        $temp = 0;
+        $totaltemp = 6;
+        $ratetemp = 0;
+        $ifc = 0;
+        $salesiqc = 0;
+        $ceorep = 0;
+        $rewf = 0;
+
           $command = $connection->createCommand("SELECT * FROM lg.ffr_acc WHERE `month` = ".$month." AND `year` = ".$LY." ORDER BY id DESC");
               $result = $command->queryAll();
               foreach ($result as $perk) {
