@@ -5,12 +5,12 @@ namespace common\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Assurance;
+use common\models\ItemAssurance;
 
 /**
- * AssuranceSearch represents the model behind the search form of `common\models\Assurance`.
+ * ItemassuranceSearch represents the model behind the search form of `common\models\ItemAssurance`.
  */
-class AssuranceSearch extends Assurance
+class ItemassuranceSearch extends ItemAssurance
 {
     /**
      * {@inheritdoc}
@@ -18,8 +18,8 @@ class AssuranceSearch extends Assurance
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['plan'], 'safe'],
+            [['id', 'assurance'], 'integer'],
+            [['nome', 'judge', 'situacao'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class AssuranceSearch extends Assurance
      */
     public function search($params)
     {
-        $query = Assurance::find();
+        $query = ItemAssurance::find();
 
         // add conditions that should always apply here
 
@@ -60,9 +60,12 @@ class AssuranceSearch extends Assurance
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'assurance' => $this->assurance,
         ]);
 
-        $query->andFilterWhere(['like', 'plan', $this->plan]);
+        $query->andFilterWhere(['like', 'nome', $this->nome])
+            ->andFilterWhere(['like', 'judge', $this->judge])
+            ->andFilterWhere(['like', 'situacao', $this->situacao]);
 
         return $dataProvider;
     }

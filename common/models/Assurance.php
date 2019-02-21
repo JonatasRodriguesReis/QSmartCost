@@ -38,7 +38,7 @@ class Assurance extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'month' => 'Month',
+            'plan' => 'Plano',
         ];
     }
 }
