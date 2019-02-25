@@ -471,7 +471,7 @@ class StatusrohsController extends Controller
     public function actionCreate()
     {
         $model = new statusrohs();
-		$model->status = 'PENDING';
+        $model->status = 'PENDING';
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);

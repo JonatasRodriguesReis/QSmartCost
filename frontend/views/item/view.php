@@ -22,6 +22,54 @@ $script = <<< JS
       th.css('transform', 'translateY('+ this.scrollTop +'px)');
     });
 
+
+$('#popup_subitem').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget);
+    var id = button.data('id');
+    var recipient = button.data('nome');
+    var modal = $(this);
+    modal.find('#item-nome').text(recipient);
+      
+    modal.find('#fileToUpload').html("<form id = 'form-file-"+ id +"' method='post' enctype='multipart/form-data'><div class='form-group'><label for='up-relatorio'>Upload Relatório</label><input type='file' class='form-control-file' id='up-relatorio' name='fileToUpload[]' multiple accept='application/pdf,application/vnd.ms-excel'></div></form><button class='btn btn-success btn-atualizar' data-subitem='"+ id +"' >Atualizar</buttom>");
+
+    $.ajax({
+        url: '?r=item/getreports&id='+id,
+        success: function (data) {
+            modal.find('.modal-body #div-reports').html(data);
+        },
+        error: function(xhr, ajaxOptions, thrownError){
+            alert(thrownError);
+        }
+    });
+      
+ });
+
+  $(document).on('click','.btn-atualizar',function(){
+       var id = $(this).data('subitem'); 
+       //alert('?r=item/atualizarsubitemarquivo&id='+id);     
+       var formData = new FormData($('#form-file-'+id)[0]);
+        $.ajax({
+            url: '?r=item/atualizarsubitemarquivo&id='+id,
+            type: 'post',
+            data: formData,
+            contentType: false,
+            cache: false,
+            processData: false,                        
+            success: function (result) {
+                if(result == "" || result == "Nada"){
+                    alert('Relatório não adicionado!');
+                }else
+                    if(result == "OK"){
+                        alert('Relatório adicionado com sucesso!');
+                    }
+            },
+            error: function(xhr, ajaxOptions, thrownError){
+                alert(thrownError);
+            }
+         });
+
+   });  
+
 JS;
 $position = \yii\web\View::POS_READY;
 $this->registerJs($script, $position);  
@@ -94,6 +142,37 @@ $this->registerCss('
 
                 <?php echo $subitems?>
             </table>
+        </div>
+
+         <div class="modal fade" id="popup_subitem" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="item-nome">SubItem</h4>
+              </div>
+              <div class="modal-body">                  
+
+                <div style = "float:right;" id="div-reports">
+                   <!--<a href= <?php echo  Url::to('/ReportsFiles/' ) . "Boleto1.pdf"; ?> target="_blank">
+                        <img style="height: 25px;width: 50px;" src= <?php echo Yii::$app->request->baseUrl . "/img/pdf-icon.svg"; ?> > 
+                    </a>
+                   <a href="#"><img style="height: 25px;width: 50px;" src= <?php echo Yii::$app->request->baseUrl . "/img/excel-icon.svg"; ?>> </a>
+                   <a href="#"><img style="height: 25px;width: 50px;" src= <?php echo Yii::$app->request->baseUrl . "/img/powerpoint-icon.svg"; ?>> </a> -->
+                </div>
+
+                <div id = "fileToUpload">
+                    
+                </div>
+
+
+              </div>
+              <!--<div class="modal-footer">-->
+                <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                <!--<button type="button" class="btn btn-primary">Send message</button> -->
+              <!--</div>-->
+            </div>
+          </div>
         </div>
     </div>
 </div>

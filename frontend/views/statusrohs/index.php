@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\statusrohsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'StatusRoHS';
+$this->title = 'Status RoHS';
 $this->params['breadcrumbs'][] = $this->title;
 
 $script = <<< JS

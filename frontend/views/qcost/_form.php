@@ -17,6 +17,9 @@ use yii\widgets\ActiveForm;
 	'Repair' => 'Repair',
 	'Return' => 'Return',
 	'Scrap' => 'Scrap',
+	'Nowork' => 'Nowork',
+	'Rework' => 'Rework',
+	'Line Repair' => 'Line Repair',
 	], 
 	['prompt'=>'', 'style'=>'width: 100%']
 	); ?>

@@ -102,16 +102,63 @@ class ItemController extends Controller
                 $htm = $htm.'<td style="text-align:center;vertical-align:middle;font-size:16px;"><b >'. $item['recipe_name'] . '</b>';
 
                 if($item['cd_conc'] < 80) $htm = $htm.'<td><div style="height:50px; text-align:center;background-color: #32f032;border-radius: 8px;vertical-align:middle; padding-top:16px;"><b>'. $item['cd_conc'] .'</b></div></td>';
-                else $htm = $htm.'<td><div style="height:50px; text-align:center;background-color: #f00f0f;border-radius: 8px;vertical-align:middle; padding-top:16px;color:white;"><b>'. $item['cd_conc'] .'</b></div></td>';
+                else {
+                    $command = $connection->createCommand("SELECT nome from subitem_report where subitem = " . $item['id']);
+                    $result = $command->queryAll(); 
+                    if(sizeof($result) > 0){
+                          $htm = $htm.'<td><button type="button" class="btn " style="height:50px; width:100%;text-align:center;background-color: #f00f0f;border-radius: 8px;vertical-align:middle; color:white;" data-toggle="modal" data-target="#popup_subitem" data-id = "'. $item['id'] .'" data-nome="'. $item['nome'] .'"><b>'. $item['cd_conc'] .'</b></button></td>';
+                    }else{
+                         $htm = $htm.'<td><button type="button" class="btn " style="height:50px; width:100%;text-align:center;background-color: #f00f0f;border-radius: 8px;vertical-align:middle;" data-toggle="modal" data-target="#popup_subitem" data-id = "'. $item['id'] .'" data-nome="'. $item['nome'] .'"><b>'. $item['cd_conc'] .'</b></button></td>';
+                    }
+                }
                 if($item['pb_conc'] < 800) $htm = $htm.'<td><div style="height:50px; text-align:center;background-color: #32f032;border-radius: 8px;vertical-align:middle; padding-top:16px;"><b>'. $item['pb_conc'] .'</b></div></td>';
-                else $htm = $htm.'<td><div style="height:50px; text-align:center;background-color: #f00f0f;border-radius: 8px;vertical-align:middle; padding-top:16px;color:white;"><b>'. $item['pb_conc'] .'</b></div></td>';
+                else{
+                    $command = $connection->createCommand("SELECT nome from subitem_report where subitem = " . $item['id']);
+                    $result = $command->queryAll(); 
+                    if(sizeof($result) > 0){
+                         $htm = $htm.'<td><button type="button" class="btn " style="height:50px; width:100%;text-align:center;background-color: #f00f0f;border-radius: 8px;vertical-align:middle; color:white;" data-toggle="modal" data-target="#popup_subitem" data-id = "'. $item['id'] .'" data-nome="'. $item['nome'] .'"><b>'. $item['pb_conc'] .'</b></button></td>';
+                    }else{
+                         $htm = $htm.'<td><button type="button" class="btn " style="height:50px; width:100%;text-align:center;background-color: #f00f0f;border-radius: 8px;vertical-align:middle; " data-toggle="modal" data-target="#popup_subitem" data-id = "'. $item['id'] .'" data-nome="'. $item['nome'] .'"><b>'. $item['pb_conc'] .'</b></button></td>';
+                    }
+                }
+                   
                 if($item['hg_conc'] < 800) $htm = $htm.'<td><div style="height:50px; text-align:center;background-color: #32f032;border-radius: 8px;vertical-align:middle; padding-top:16px;"><b>'. $item['hg_conc'] .'</b></div></td>';
-                else $htm = $htm.'<td><div style="height:50px; text-align:center;background-color: #f00f0f;border-radius: 8px;vertical-align:middle; padding-top:16px;color:white;"><b>'. $item['hg_conc'] .'</b></div></td>'; 
+                else {
+                    $command = $connection->createCommand("SELECT nome from subitem_report where subitem = " . $item['id']);
+                    $result = $command->queryAll(); 
+                    if(sizeof($result) > 0){
+                         $htm = $htm.'<td<button type="button" class="btn " style="height:50px; width:100%;text-align:center;background-color: #f00f0f;border-radius: 8px;vertical-align:middle; color:white;" data-toggle="modal" data-target="#popup_subitem" data-id = "'. $item['id'] .'" data-nome="'. $item['nome'] .'"><b>'. $item['hg_conc'] .'</b></button></td>';
+                    }else{
+                         $htm = $htm.'<td<button type="button" class="btn " style="height:50px; width:100%;text-align:center;background-color: #f00f0f;border-radius: 8px;vertical-align:middle;" data-toggle="modal" data-target="#popup_subitem" data-id = "'. $item['id'] .'" data-nome="'. $item['nome'] .'"><b>'. $item['hg_conc'] .'</b></button></td>';
+                    }
+                } 
                 if($item['br_conc'] < 800) $htm = $htm.'<td><div style="height:50px; text-align:center;background-color: #32f032;border-radius: 8px;vertical-align:middle; padding-top:16px;"><b>'. $item['br_conc'] .'</b></div></td>';
-                else $htm = $htm.'<td><div style="height:50px; text-align:center;background-color: #f00f0f;border-radius: 8px;vertical-align:middle; padding-top:16px;color:white;"><b>'. $item['br_conc'] .'</b></div></td>';
+                else{
+
+                  $htm = $htm.'<td><button type="button" class="btn " style="height:50px; width:100%;text-align:center;background-color: #f00f0f;border-radius: 8px;vertical-align:middle; color:white;" data-toggle="modal" data-target="#popup_subitem" data-id = "'. $item['id'] .'" data-nome="'. $item['nome'] .'"><b>'. $item['br_conc'] .'</b></button></td>';
+
+                  $command = $connection->createCommand("SELECT nome from subitem_report where subitem = " . $item['id']);
+                    $result = $command->queryAll(); 
+                    if(sizeof($result) > 0){
+                         $htm = $htm.'<td><button type="button" class="btn " style="height:50px; width:100%;text-align:center;background-color: #f00f0f;border-radius: 8px;vertical-align:middle; color:white;" data-toggle="modal" data-target="#popup_subitem" data-id = "'. $item['id'] .'" data-nome="'. $item['nome'] .'"><b>'. $item['br_conc'] .'</b></button></td>';
+                    }else{
+                        $htm = $htm.'<td><button type="button" class="btn " style="height:50px; width:100%;text-align:center;background-color: #f00f0f;border-radius: 8px;vertical-align:middle;" data-toggle="modal" data-target="#popup_subitem" data-id = "'. $item['id'] .'" data-nome="'. $item['nome'] .'"><b>'. $item['br_conc'] .'</b></button></td>';
+                    }
+                }
                 if($item['cr_conc'] < 800) $htm = $htm.'<td><div style="height:50px; text-align:center;background-color: #32f032;border-radius: 8px;vertical-align:middle; padding-top:16px;"><b>'. $item['cr_conc'] .'</b></div></td>';
-                else $htm = $htm.'<td><div style="height:50px; text-align:center;background-color: #f00f0f;border-radius: 8px;vertical-align:middle; padding-top:16px;color:white;"><b>'. $item['cr_conc'] .'</b> </div></td>';
-				
+                else{
+                
+                  $command = $connection->createCommand("SELECT nome from subitem_report where subitem = " . $item['id']);
+                    $result = $command->queryAll(); 
+                    if(sizeof($result) > 0){
+                         $htm = $htm.'<td><button type="button" class="btn " style="height:50px; width:100%;text-align:center;background-color: #f00f0f;border-radius: 8px;vertical-align:middle; color:white;" data-toggle="modal" data-target="#popup_subitem" data-id = "'. $item['id'] .'" data-nome="'. $item['nome'] .'"><b>'. $item['cr_conc'] .'</b> </button></td>';
+
+                    }else{
+                        $htm = $htm.'<td><button type="button" class="btn " style="height:50px; width:100%;text-align:center;background-color: #f00f0f;border-radius: 8px;vertical-align:middle;" data-toggle="modal" data-target="#popup_subitem" data-id = "'. $item['id'] .'" data-nome="'. $item['nome'] .'"><b>'. $item['cr_conc'] .'</b> </button></td>';
+
+                    }
+
+				}
                 $htm = $htm.'</a></td><td><a href = "'. Url::to('/ReportsFiles/' ) . $item['data_teste'] . '_'. $item['sample_no'] .'_'. $item['nome'] .'_' .$nome .'.xls"><button class="btn btn-primary"'. $aux .'>Report</button></a></td></tr>';
 
                     /*$htm = $htm.'<tr><td><a><h5>'. $item['nome'] . '</h5></a></td><td><a href = "http://localhost:85/QSmartCost/exportarPDF.php?nome=' . $item['data_teste'] . '_'. $item['sample_no'] .'_'. $item['nome'] .'_' .$nome .'.html"><button class="btn btn-primary"'. $aux .'>Report</button></a></td></tr>';*/
@@ -243,5 +290,49 @@ class ItemController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    public function actionAtualizarsubitemarquivo($id)
+    {
+        
+        $path = "C:\\xampp\\htdocs\\ReportsFiles\\";
+        $result = '';
+        $property_images = $_FILES['fileToUpload']['name'];
+        if (!empty($property_images)) {
+            for ($up = 0; $up < count($property_images); $up++) {
+                if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'][$up], $path . str_replace(" ", "_", $_FILES['fileToUpload']['name'][$up]))) {
+                    
+                    $connection = Yii::$app->getDb();
+                    $command = $connection->createCommand("insert into subitem_report(nome,subitem) values('". str_replace(" ", "_", $_FILES['fileToUpload']['name'][$up]) ."',". $id .")");
+                    $command->execute();
+                    echo $result = "OK";
+                }
+            }
+        } else {
+            echo $result = "Nada";
+        }
+
+        
+    }
+
+    public function actionGetreports($id){
+        $connection = Yii::$app->getDb();
+        $command = $connection->createCommand("SELECT nome from subitem_report where subitem = " . $id);
+
+        $result = $command->queryAll();
+        $html = '';
+        foreach ($result as $perk) {
+            if(strpos($perk['nome'], ".pdf")){
+                $html .= '<a href=' .  Url::to("/ReportsFiles/" ) . $perk['nome'] .' target="_blank">
+                    <img style="height: 25px;width: 50px;" src= "'. Yii::$app->request->baseUrl . '/img/pdf-icon.svg'. '"> 
+                </a>';
+            }elseif (strpos($perk['nome'], ".xlsx") or strpos($perk['nome'], ".xls")) {
+               $html .= '<a href=' .  Url::to("/ReportsFiles/" ) . $perk['nome'] .' target="_blank">
+                    <img style="height: 25px;width: 50px;" src= "'. Yii::$app->request->baseUrl . '/img/excel-icon.svg'. '"> 
+                </a>';
+            }
+            
+        }
+        return $html;
     }
 }
