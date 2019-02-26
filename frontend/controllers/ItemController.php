@@ -301,11 +301,13 @@ class ItemController extends Controller
         if (!empty($property_images)) {
             for ($up = 0; $up < count($property_images); $up++) {
                 if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'][$up], $path . str_replace(" ", "_", $_FILES['fileToUpload']['name'][$up]))) {
-                    
+                    $this->deleteReports($id);
                     $connection = Yii::$app->getDb();
                     $command = $connection->createCommand("insert into subitem_report(nome,subitem) values('". str_replace(" ", "_", $_FILES['fileToUpload']['name'][$up]) ."',". $id .")");
                     $command->execute();
                     echo $result = "OK";
+
+                    
                 }
             }
         } else {
@@ -313,6 +315,18 @@ class ItemController extends Controller
         }
 
         
+    }
+
+    public function deleteReports($id){
+        $connection = Yii::$app->getDb();
+        $command = $connection->createCommand("select * from subitem_report where subitem=".$id);
+        $result = $command->queryAll();
+        foreach ($result as $value) {
+            unlink("C:\\xampp\\htdocs\\ReportsFiles\\".$value['nome']);
+        }
+
+        $command = $connection->createCommand("delete from subitem_report where subitem=".$id);
+        $command->execute();
     }
 
     public function actionGetreports($id){
